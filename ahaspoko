@@ -1,0 +1,43 @@
+a = int(input("Podaj wartość a: "))
+b = int(input("Podaj wartość b: "))
+
+result = a**2 + a*b + b**2
+
+try:
+    p = open("zadanie1.txt", "w")
+    p.write(str(result))
+
+except ValueError:
+   print("Wprowadzono nieprawidłowe dane. Wartości a i b muszą być liczbami całkowitymi.")
+
+def sum_lists(list1, list2):
+    if len(list1) != len(list2):
+        raise ValueError("Listy muszą mieć taką samą długość.")
+
+    result = []
+
+    for i in range(len(list1)):
+        result.append(list1[i] + list2[i])
+
+    return result
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+result = sum_lists(list1, list2)
+print(result)
+
+with open("zad.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+
+    fragment = text[100:135]
+
+    upper_count = sum(1 for c in fragment if c.isupper())
+
+    # wyświetl duże litery wraz z ich ilością lub odpowiedni komunikat
+    if upper_count > 0:
+        print(f"Duże litery w fragmencie tekstu ({upper_count}):")
+        for c in fragment:
+            if c.isupper():
+                print(c)
+    else:
+        print("W fragmencie tekstu nie ma żadnych dużych liter.")
