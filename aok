@@ -1,0 +1,59 @@
+with open('tekst.txt', encoding='utf-8') as plik:
+    zawartosc = plik.read()
+
+fragment = zawartosc[70:110]  # 40 znaków zaczynając od 71. znaku
+
+liczba_A = fragment.count('A')
+if liczba_A > 0:
+    print(f'Liczba liter A w fragmencie tekstu: {liczba_A}')
+else:
+    print('W fragmencie tekstu nie ma liter A')
+
+
+# Utwórz listę z różnymi typami danych, w tym liczbami całkowitymi i zmiennoprzecinkowymi
+lista = [1, 2.5, 3, 4.8, 5, 6.2, 7, 8.1]
+
+# Utwórz nową listę z użyciem comprehension, która zawiera tylko liczby zmiennoprzecinkowe
+nowa_lista = [x for x in lista if isinstance(x, float)]
+
+# Wyświetl obie listy
+print("Lista pierwotna:", lista)
+print("Nowa lista:", nowa_lista)
+
+
+def suma_pierwszego(lista):
+    """
+    Funkcja pobiera listę z liczbami dowolnego typu, sumuje pierwszy element z pozostałymi
+    i dodaje wynik na koniec listy. Następnie zwraca zmodyfikowaną listę.
+    """
+    pierwszy = lista[0]
+    suma = sum(lista[1:])
+    lista.append(pierwszy + suma)
+    return lista
+
+liczby = [1, 2, 3, 4]
+wynik = suma_pierwszego(liczby)
+print(wynik)
+
+
+try:
+    n = int(input("Podaj pierwszą liczbę całkowitą: "))
+    m = int(input("Podaj drugą liczbę całkowitą: "))
+except ValueError:
+    print("Podane wartości nie są liczbami całkowitymi!")
+    exit()
+
+if n < 1 or m < 1:
+    print("Podane liczby muszą być większe od zera!")
+    exit()
+
+suma = sum(range(n, m+1))
+
+try:
+    with open('zadanie5.txt', 'w') as plik:
+        plik.write(str(suma))
+    print("Wynik został zapisany do pliku zadanie5.txt")
+except IOError:
+    print("Błąd zapisu do pliku!")
+
+
