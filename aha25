@@ -1,0 +1,57 @@
+import math
+dzialanie = math.pow((math.log(32, 2)+ math.pi + math.sin(56)), (1/4))
+dzialanie =round(dzialanie,  2)
+print(dzialanie)
+
+#2
+lista = [1, 2, 3, 4, 5, 6]
+
+lista2 = [x for x in lista if x%3 == 0]
+
+print(lista)
+print(lista2)
+
+
+#3
+def oblicz_roznice_i_sprawdz(lista):
+    if len(lista) == 0:
+        return None
+
+    najwieksza = max(lista)
+    najmniejsza = min(lista)
+    roznica = najwieksza - najmniejsza
+
+    wieksze_od_roznicy = [x for x in lista if x > roznica]
+    ilosc_wiekszych = len(wieksze_od_roznicy)
+
+    return roznica, ilosc_wiekszych
+
+
+#4
+with open('tekst.txt', encoding='utf-8') as znaki:
+    zawartosc = znaki.read()
+
+    fragment = zawartosc[25:56]
+    print(fragment)
+    male = sum(1 for c in fragment if c.islower())
+    print(male)
+
+
+
+#5
+try:
+    a = int(input("podaj a: "))
+    b = int(input("podaj b: "))
+    c = int(input("podaj c: "))
+
+
+    pp = a * b
+    pb = 2*(a*c) + 2*(b*c)
+    pc = 2*pp + pb
+
+
+    with open ('plik.txt', "w") as p:
+        p.write(str(pc))
+
+except ValueError:
+   print("Podane wartości nie są liczbami całkowitymi!")
