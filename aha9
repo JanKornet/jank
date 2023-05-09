@@ -1,0 +1,64 @@
+Napisz funkcję w python, która jako argument przyjmuje słownik. Zadaniem funkcji jest zapisanie do nowo utworzonej listy sumy elementów (klucz, wartość) jeżeli klucz oraz wartość są liczbami całkowitymi. 
+Na końcu zwróć utworzoną listę.
+
+def sumuj_elementy(slownik):
+    suma_elementow = []
+    for klucz, wartosc in slownik.items():
+        if isinstance(klucz, int) and isinstance(wartosc, int):
+            suma = klucz + wartosc
+            suma_elementow.append(suma)
+    return suma_elementow
+
+
+Napisz skrypt, w którym utworzysz listę z liczbami, a następnie za pomocą python comprehension utwórz nową listę, która będzie zawierać tylko liczby całkowite z pierwszej listy. Na koniec wyświetl obie listy.
+
+# Utworzenie listy z liczbami
+lista_liczb = [3.14, 5, 2.7, 8, -1.5, 10, 4.2, -6]
+
+# Utworzenie nowej listy zawierającej tylko liczby całkowite
+lista_calkowitych = [liczba for liczba in lista_liczb if isinstance(liczba, int)]
+
+# Wyświetlenie obu list
+print("Lista liczb:", lista_liczb)
+print("Lista liczb całkowitych:", lista_calkowitych)
+
+
+Dany jest plik tekst.txt. Dokonaj wczytania plikuwraz z obsługą polski znaków oraz zapisz do zmiennej znaki, 27 znaków z tekstu zaczynając od 35 znaku tekstu. Wyświetl wczytany fragment, oraz ilość wystąpienia spacji.
+
+import codecs
+
+# Wczytanie pliku tekstowego z obsługą polskich znaków
+with codecs.open("tekst.txt", "r", encoding="utf-8") as file:
+    zawartosc = file.read()
+
+# Wyświetlenie wczytanego fragmentu (27 znaków od 35 znaku tekstu)
+fragment = zawartosc[35:35+27]
+print("Wczytany fragment:", fragment)
+
+# Obliczenie ilości wystąpień spacji
+ilosc_spacji = zawartosc.count(" ")
+print("Ilość wystąpień spacji:", ilosc_spacji)
+
+
+Napisz skrypt, który od użytkownika z konsoli pobiera trzy liczby całkowite a1, n i r. Zadaniem jest policzenie n-tego wyrazu ciągu arytmetycznego gdzie a1 to pierwszy wyraz ciągu, nnumerwyraz do policzenia i r 
+jest różnicą ciągu. Wynik zapisz do pliku. Dokonaj sprawdzenia możliwych błędów z wczytywanymi wartościami za pomocą składni try-except.
+
+try:
+    # Wczytanie wartości od użytkownika
+    a1 = int(input("Podaj pierwszy wyraz ciągu (a1): "))
+    n = int(input("Podaj numer wyrazu do policzenia (n): "))
+    r = int(input("Podaj różnicę ciągu (r): "))
+
+    # Obliczenie n-tego wyrazu ciągu arytmetycznego
+    wyraz = a1 + (n-1) * r
+
+    # Zapisanie wyniku do pliku
+    with open("wynik.txt", "w") as file:
+        file.write(str(wyraz))
+
+    print("Wynik został zapisany do pliku 'wynik.txt'.")
+
+except ValueError:
+    print("Wprowadzono nieprawidłowe dane. Wszystkie wartości powinny być liczbami całkowitymi.")
+except Exception as e:
+    print("Wystąpił błąd:", str(e))
