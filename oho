@@ -128,3 +128,49 @@ grupa = df.groupby("imie i nazwisko").agg({"wartosc zamowienia": ['sum']})
 print(grupa)
 grupa.plot(kind='pie', subplots= True, autopct= '%.2f%%', fontsize=20, colors= ['red', 'green'])
 plt.show()
+
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+#zad 1
+# x= np.arange(3,7.25,0.25)
+# y= np.cos(x)/(x**2)
+# plt.plot(x, y)
+# plt.xlabel('Oś x')
+# plt.ylabel('Oś y')
+# plt.legend(loc='best')
+# plt.title('Wykres liniowy')
+# plt.show()
+#zad 2
+# x1= np.arange(-5,5,1)
+# x2= np.arange(-5,5,1)
+# y1= 5*(x1**2)-(3*x1)-2
+# y2= ((-2 * x2)**3)+5
+# fig,axs=plt.subplots(2,2)
+# axs[0, 1].plot(x1,y1,color = 'red')
+# axs[0, 1].set_title('Pierwszy wykres')
+# axs[0, 1].set_xlabel('x')
+# axs[0, 1].set_ylabel('wynik funkcji')
+# axs[1, 0].plot(x2,y2,color = 'green',)
+# axs[1, 0].set_title('Drugi wykres')
+# axs[1, 0].set_xlabel('x')
+# axs[1, 0].set_ylabel('wynik funkcji')
+# fig.delaxes(axs[0,0])
+# fig.delaxes(axs[1,1])
+# plt.savefig('Oliwier_Tloczkowski.png',format='png')
+# plt.show()
+#zad3
+# df=pd.read_csv('wine.data',header=0, sep=",")
+# print(df)
+# grupa=df.groupby('Class')
+# print(grupa)
+#zad4
+# df=pd.read_csv('wine.data',header=0, sep=",")
+# print(df)
+# grupa=df.groupby('Class')
+# print(grupa)
+
