@@ -1,0 +1,73 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+# zadanie 1
+
+# x = np.arange(3, 7+0.25, 0.25)
+# y = np.cos(x)/(x**2)
+# plt.plot(x, y, label='gowno')
+# plt.xlabel('sranie')
+# plt.ylabel('pierdziawa')
+# plt.title('wykres srania na m')
+# plt.legend(title='chuj')
+# plt.show()
+# print(x)
+# print(y)
+
+
+# zadanie 2
+
+# x1 = np.arange(-4, 4 + 0.1, 0.1)
+# x2 = np.arange(-4, 4 + 0.1, 0.1)
+# y1 = 5 * (x1 ** 2) - 3 * x1 + 2
+# y2 = (-2 * (x2 ** 3)) + 5
+#
+# plt.subplot(3, 2, 4)  # <- wykres 1
+# plt.plot(x1, y1, 'r', label='5x^2-3x+2')
+# plt.title('pierwszy wykers')
+# plt.xlabel('x')
+# plt.ylabel('wynik funkcji')
+# plt.xlim(-4, 4)
+# plt.ylim(0, 100)
+# plt.yticks([0, 50])
+# plt.legend(loc='upper right')
+#
+# plt.subplot(3, 2, 5)  # <- wykres 2
+# plt.plot(x2, y2, 'go', label='-2x^3+5')
+# plt.title('drugoi wykers')
+# plt.xlabel('x')
+# plt.ylabel('wynik funkcji')
+# plt.xlim(-4, 4)
+# plt.yticks([-100, 0, 100])
+# plt.legend(loc='upper right')
+# plt.savefig("im_naz_nr_zad.png")
+# plt.show()
+
+
+# Zad 3. (6pkt) Używając biblioteki pandas wczytaj zawartość pliku ‘glass.data’ do ramki danych i wykonaj następujące kroki:
+# •utwórz nową ramkę danych gdzie znajdą się te wiersze, w których wartość dla magnezu jest większa od 3.6 (Magnesium).
+# •Na nowej ramce danych dokonaj grupowania danych po kolumnie Type of glass
+# •Na wykresie kołowym przedstaw procentowy udział każdego z typów szkła.
+
+# plik = pd.read_csv('glass.data', header=0, sep=",")
+# df = plik[plik['Magnesium'] > 3.6]
+# df.groupby('Type of glass').size()
+# df = df['Sodium', 'Magnesium', 'Aluminum', 'Silicon', 'Potassium', 'Calcium', 'Barium', 'Iron', 'Type of glass']
+# df.plot(kind='pie')
+# plt.show()
+#
+
+
+# tabelka = pd.read_csv('glass.data', header=0, sep=',', decimal='.')
+# print(tabelka)
+# a = tabelka[tabelka.Magnesium > 3.6]
+# new_df = a.groupby("Type of glass")
+# grupa = tabelka.groupby("Type of glass").size()
+# plt.pie(grupa, labels=grupa.index, autopct='%.1f%%')
+# plt.legend(labels=grupa.index, loc='lower left', title="index szkła")
+# plt.savefig("im_naz_zad3.png")
+# plt.show()
+
+
